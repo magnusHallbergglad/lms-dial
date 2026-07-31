@@ -29,6 +29,7 @@ You will need:
 
 - Arduino IDE 2.x
 - ESP32 board support by Espressif Systems
+- M5Dial 1.0.3 or newer
 - M5Unified
 - M5GFX
 - ArduinoJson (used when LMS communication is added)

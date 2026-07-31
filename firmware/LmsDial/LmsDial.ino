@@ -1,40 +1,40 @@
-#include <M5Unified.h>
+#include <M5Dial.h>
 
 long dialPosition = 0;
 
 void drawDialPosition() {
-  M5.Display.fillScreen(BLACK);
-  M5.Display.setTextDatum(middle_center);
-  M5.Display.setTextColor(WHITE, BLACK);
-  M5.Display.setTextSize(2);
-  M5.Display.drawString("lms-dial", M5.Display.width() / 2,
-                        M5.Display.height() / 2 - 36);
+  M5Dial.Display.fillScreen(BLACK);
+  M5Dial.Display.setTextDatum(middle_center);
+  M5Dial.Display.setTextColor(WHITE, BLACK);
+  M5Dial.Display.setTextSize(2);
+  M5Dial.Display.drawString("lms-dial", M5Dial.Display.width() / 2,
+                            M5Dial.Display.height() / 2 - 36);
 
-  M5.Display.setTextSize(4);
-  M5.Display.drawNumber(dialPosition, M5.Display.width() / 2,
-                        M5.Display.height() / 2 + 14);
+  M5Dial.Display.setTextSize(4);
+  M5Dial.Display.drawNumber(dialPosition, M5Dial.Display.width() / 2,
+                            M5Dial.Display.height() / 2 + 14);
 }
 
 void setup() {
   auto config = M5.config();
-  M5.begin(config);
+  M5Dial.begin(config, true, false);  // Enable encoder, disable RFID.
 
-  M5.Display.setRotation(0);
+  M5Dial.Display.setRotation(0);
   drawDialPosition();
 }
 
 void loop() {
-  M5.update();
+  M5Dial.update();
 
-  const long newPosition = M5.Dial.Encoder.read();
+  const long newPosition = M5Dial.Encoder.read();
   if (newPosition != dialPosition) {
     dialPosition = newPosition;
     drawDialPosition();
   }
 
-  if (M5.BtnA.wasPressed()) {
+  if (M5Dial.BtnA.wasPressed()) {
     dialPosition = 0;
-    M5.Dial.Encoder.write(dialPosition);
+    M5Dial.Encoder.write(dialPosition);
     drawDialPosition();
   }
 }
