@@ -1,0 +1,28 @@
+# Local credentials and device-specific configuration
+secrets.h
+**/secrets.h
+config.local.h
+**/config.local.h
+
+# Arduino build output
+build/
+**/build/
+*.bin
+*.elf
+*.hex
+*.map
+
+# PlatformIO (if adopted later)
+.pio/
+.pioenvs/
+.piolibdeps/
+
+# Editors and operating systems
+.vscode/
+.idea/
+*.swp
+*~
+.DS_Store
+
+# Logs
+*.log
