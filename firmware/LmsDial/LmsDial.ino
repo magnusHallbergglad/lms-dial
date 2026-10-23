@@ -151,6 +151,22 @@ bool setLmsVolume(int volume) {
   return sent;
 }
 
+bool togglePlayback() {
+  StaticJsonDocument<192> request;
+  request["id"] = 1;
+  request["method"] = "slim.request";
+  JsonArray params = request.createNestedArray("params");
+  params.add(LMS_PLAYER_ID);
+  params.createNestedArray().add("pause");
+
+  String body;
+  serializeJson(request, body);
+  String responseBody;
+  const bool sent = postLmsRequest(body, responseBody);
+  Serial.printf("Toggle LMS playback: %s\n", sent ? "ok" : "failed");
+  return sent;
+}
+
 void drawDialPosition() {
   M5Dial.Display.fillScreen(BLACK);
   M5Dial.Display.setTextDatum(middle_center);
@@ -206,4 +222,7 @@ void loop() {
     setLmsVolume(dialPosition);
   }
 
+  if (M5Dial.BtnA.wasPressed()) {
+    togglePlayback();
+  }
 }

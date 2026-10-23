@@ -13,7 +13,8 @@ The first release will focus on making one player pleasant to control from a des
 ## Project status
 
 Early development. The sketch currently connects to Wi-Fi, reads the selected
-player's volume from LMS, and changes it with the M5Dial encoder over JSON-RPC.
+player's volume from LMS, changes it with the M5Dial encoder, and toggles
+play/pause with a press on the dial. LMS communication uses JSON-RPC.
 
 ## Repository layout
 
