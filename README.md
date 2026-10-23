@@ -14,7 +14,10 @@ The first release will focus on making one player pleasant to control from a des
 
 Early development. The sketch currently connects to Wi-Fi, reads the selected
 player's volume from LMS, changes it with the M5Dial encoder, and toggles
-play/pause with a press on the dial. LMS communication uses JSON-RPC.
+play/pause with a short press on the dial. A long press toggles mute. LMS
+communication uses JSON-RPC, and the display shows `MUTE` while the player is
+muted. The controller automatically retries Wi-Fi and LMS connections after an
+outage.
 
 ## Repository layout
 
