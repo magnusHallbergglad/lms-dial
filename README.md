@@ -12,7 +12,8 @@ The first release will focus on making one player pleasant to control from a des
 
 ## Project status
 
-Early development. The sketch currently provides a small hardware smoke test for the M5Dial display, encoder, and button.
+Early development. The sketch currently connects to Wi-Fi, reads the selected
+player's volume from LMS, and changes it with the M5Dial encoder over JSON-RPC.
 
 ## Repository layout
 
@@ -39,7 +40,9 @@ Open `firmware/LmsDial/LmsDial.ino` in Arduino IDE, select the M5Dial board and 
 
 ## Configuration and secrets
 
-Wi-Fi credentials and local LMS settings must not be committed. When configuration is introduced, copy the provided example file to `secrets.h` and keep your real values only in that ignored file.
+Wi-Fi credentials and local LMS settings must not be committed. Copy
+`firmware/LmsDial/secrets.example.h` to `firmware/LmsDial/secrets.h`, enter your
+own values there, and keep that ignored file local.
 
 ## Roadmap
 
